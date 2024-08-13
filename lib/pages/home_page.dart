@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
           child: DefaultTabController(
             length: myTabs.length,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // home row
                 Row(
@@ -185,8 +186,21 @@ class _HomePageState extends State<HomePage> {
                   height: 24,
                 ),
 
+// Title for TabBar
+                Text(
+                  'Shop by category',
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.nunito(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
                 // tab bar
-                TabBar(tabs: myTabs),
+                TabBar(indicatorColor: Colors.green, tabs: myTabs),
 
                 // tab bar view
                 Expanded(
