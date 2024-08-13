@@ -52,10 +52,44 @@ class FruitsTile extends StatelessWidget {
             ),
 
             // fruits pictures
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16.0),
+              child: Image.asset(imageName),
+            ),
 
             // fruits type
+            Text(
+              fruitsType,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Fruits',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+
+            const SizedBox(height: 12),
 
             // star icon + add button
+            Row(
+              children: [
+                // star icon
+                const Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                ),
+
+                //plus button
+                Icon(
+                  Icons.add,
+                  color: Colors.grey[800],
+                ),
+              ],
+            ),
           ],
         ),
       ),
