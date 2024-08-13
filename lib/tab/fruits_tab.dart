@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:sample_app/util/fruits_tile.dart';
+
+class FruitsTab extends StatelessWidget {
+  // list of fruits
+  List fruitsOnSale = [
+// [fruitsType, fruitsPrice, fruitsColor, imageName]
+
+    ["Orange", "3", Colors.orange, "lib/images/orange.png"],
+    ["Strawberry", "5", Colors.red, "lib/images/orange.png"],
+    ["Grape", "9", Colors.purple, "lib/images/orange.png"],
+    ["Blueberry", "6", Colors.blue, "lib/images/orange.png"],
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: fruitsOnSale.length,
+      padding: EdgeInsets.all(12),
+      gridDelegate:
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (context, index) {
+        return FruitsTile(
+          fruitsType: fruitsOnSale[index][0],
+          fruitsPrice: fruitsOnSale[index][1],
+          fruitsColor: fruitsOnSale[index][2],
+          imageName: fruitsOnSale[index][3],
+        );
+      },
+    );
+  }
+}
