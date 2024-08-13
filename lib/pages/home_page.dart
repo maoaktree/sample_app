@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sample_app/util/my_tab.dart';
+import 'package:sample_app/tab/fruits_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +11,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+// my tabs
+  List<Widget> myTabs = const [
+// vegan tab
+    MyTab(
+      iconPath: 'lib/images/vegan.png',
+    ),
+
+// meat tab
+    MyTab(
+      iconPath: 'lib/images/chicken.png',
+    ),
+
+// fruits tab
+    MyTab(
+      iconPath: 'lib/images/fruits.png',
+    ),
+
+// milk tab
+    MyTab(
+      iconPath: 'lib/images/milk.png',
+    ),
+
+// fish tab
+    MyTab(
+      iconPath: 'lib/images/fish.png',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: const Color.fromRGBO(83, 227, 158, 1),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
@@ -77,16 +107,16 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           children: [
                             Text(
-                              'ORDER AGAIN',
+                              'ORDER \nAGAIN',
                               style: GoogleFonts.nunito(
-                                color: Colors.blueGrey,
-                                fontSize: 12,
-                              ),
+                                  color: Colors.blueGrey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
 
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 24),
 
                         Image.asset(
                           'lib/images/bag.png',
@@ -105,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.green,
+                      color: const Color.fromRGBO(83, 227, 158, 1),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
@@ -113,17 +143,17 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           children: [
                             Text(
-                              'LOCAL SHOP',
+                              'LOCAL \nSHOP',
                               style: GoogleFonts.nunito(
-                                color: Colors.blueGrey,
-                                fontSize: 12,
-                              ),
+                                  color: Colors.blueGrey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 24),
                         Image.asset(
-                          'lib/images/bag.png',
+                          'lib/images/shop.png',
                           width: 42,
                           height: 42,
                         ),
@@ -131,6 +161,41 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ],
+              ),
+
+              const SizedBox(
+                height: 25,
+              ),
+
+              // SWIFT DISPLAY
+
+              const SizedBox(
+                height: 24,
+              ),
+
+              // tab bar
+              TabBar(tabs: myTabs),
+
+              // tab bar view
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    // vegan page
+                    //VeganTab(),
+
+                    // meat page
+                    //MeatTab(),
+
+                    //fruits page
+                    FruitsTab(),
+
+                    // milk page
+                    //MilkTab(),
+
+                    //fish page
+                    // FishTab(),
+                  ],
+                ),
               ),
             ],
           ),
