@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,22 +22,22 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     children: [
                       Text(
                         "Delivery",
-                        style: TextStyle(
+                        style: GoogleFonts.nunito(
                           color: Colors.blueGrey,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
-                        height: 4,
-                      ),
                       Text(
                         'Araraquara, Sp',
-                        style: TextStyle(color: Colors.blueGrey),
+                        style: GoogleFonts.nunito(
+                          color: Colors.blueGrey,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
@@ -70,19 +71,32 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: const Row(
+                    child: Row(
                       children: [
                         // ORDER AGAIN
                         Column(
                           children: [
                             Text(
                               'ORDER AGAIN',
+                              style: GoogleFonts.nunito(
+                                color: Colors.blueGrey,
+                                fontSize: 12,
+                              ),
                             ),
                           ],
+                        ),
+
+                        const SizedBox(width: 4),
+
+                        Image.asset(
+                          'lib/images/bag.png',
+                          width: 42,
+                          height: 42,
                         ),
                       ],
                     ),
                   ),
+
                   const SizedBox(
                     height: 25,
                   ),
@@ -94,10 +108,24 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: const Row(
+                    child: Row(
                       children: [
                         Column(
-                          children: [Text('LOCAL SHOP')],
+                          children: [
+                            Text(
+                              'LOCAL SHOP',
+                              style: GoogleFonts.nunito(
+                                color: Colors.blueGrey,
+                                fontSize: 12,
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(width: 4),
+                        Image.asset(
+                          'lib/images/bag.png',
+                          width: 42,
+                          height: 42,
                         ),
                       ],
                     ),
