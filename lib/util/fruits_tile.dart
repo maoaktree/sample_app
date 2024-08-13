@@ -41,7 +41,7 @@ class FruitsTile extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(12),
                   child: Text(
-                    '\s$fruitsPrice',
+                    '\$$fruitsPrice',
                     style: TextStyle(
                         color: fruitsColor[800],
                         fontWeight: FontWeight.bold,
@@ -52,10 +52,12 @@ class FruitsTile extends StatelessWidget {
             ),
 
             // fruits pictures
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 36.0, vertical: 16.0),
-              child: Image.asset(imageName),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 36.0, vertical: 16.0),
+                child: Image.asset(imageName),
+              ),
             ),
 
             // fruits type
@@ -82,6 +84,8 @@ class FruitsTile extends StatelessWidget {
                   Icons.star,
                   color: Colors.yellow,
                 ),
+
+                const SizedBox(width: 8),
 
                 //plus button
                 Icon(

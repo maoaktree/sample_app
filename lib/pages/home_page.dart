@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sample_app/tab/fish_tab.dart';
+import 'package:sample_app/tab/meat_tab.dart';
+import 'package:sample_app/tab/milk_tab.dart';
+import 'package:sample_app/tab/vegan_tab.dart';
 import 'package:sample_app/util/my_tab.dart';
 import 'package:sample_app/tab/fruits_tab.dart';
 
@@ -94,75 +98,81 @@ class _HomePageState extends State<HomePage> {
 
                 // buttons
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(83, 227, 158, 1),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Row(
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // ORDER AGAIN
-                          Column(
-                            children: [
-                              Text(
-                                'ORDER \nAGAIN',
-                                style: GoogleFonts.nunito(
-                                    color: Colors.blueGrey,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(83, 227, 158, 1),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Row(
+                              children: [
+                                // ORDER AGAIN
+                                Column(
+                                  children: [
+                                    Text(
+                                      'ORDER \nAGAIN',
+                                      style: GoogleFonts.nunito(
+                                          color: Colors.blueGrey,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+
+                                const SizedBox(width: 24),
+
+                                Image.asset(
+                                  'lib/images/bag.png',
+                                  width: 42,
+                                  height: 42,
+                                ),
+                              ],
+                            ),
                           ),
 
-                          const SizedBox(width: 24),
+                          const SizedBox(
+                            height: 25,
+                          ),
 
-                          Image.asset(
-                            'lib/images/bag.png',
-                            width: 42,
-                            height: 42,
+                          // LOCAL SHOP
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(83, 227, 158, 1),
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Row(
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      'LOCAL \nSHOP',
+                                      style: GoogleFonts.nunito(
+                                          color: Colors.blueGrey,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(width: 24),
+                                Image.asset(
+                                  'lib/images/shop.png',
+                                  width: 42,
+                                  height: 42,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
-                    ),
-
-                    const SizedBox(
-                      height: 25,
-                    ),
-
-                    // LOCAL SHOP
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(83, 227, 158, 1),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Row(
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                'LOCAL \nSHOP',
-                                style: GoogleFonts.nunito(
-                                    color: Colors.blueGrey,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          ),
-                          const SizedBox(width: 24),
-                          Image.asset(
-                            'lib/images/shop.png',
-                            width: 42,
-                            height: 42,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
 
                 const SizedBox(
@@ -183,19 +193,19 @@ class _HomePageState extends State<HomePage> {
                   child: TabBarView(
                     children: [
                       // vegan page
-                      //VeganTab(),
+                      VeganTab(),
 
                       // meat page
-                      //MeatTab(),
+                      MeatTab(),
 
                       //fruits page
                       FruitsTab(),
 
                       // milk page
-                      //MilkTab(),
+                      MilkTab(),
 
                       //fish page
-                      // FishTab(),
+                      FishTab(),
                     ],
                   ),
                 ),
