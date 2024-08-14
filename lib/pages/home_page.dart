@@ -4,6 +4,7 @@ import 'package:sample_app/tab/fish_tab.dart';
 import 'package:sample_app/tab/meat_tab.dart';
 import 'package:sample_app/tab/milk_tab.dart';
 import 'package:sample_app/tab/vegan_tab.dart';
+import 'package:sample_app/util/button.dart';
 import 'package:sample_app/util/my_tab.dart';
 import 'package:sample_app/tab/fruits_tab.dart';
 
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -180,7 +181,37 @@ class _HomePageState extends State<HomePage> {
                   height: 25,
                 ),
 
-                // SWIFT DISPLAY
+                // PROMO BANNER
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.all(25),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          // promo message
+                          const Text('FRESH AVOCADO UP TO 15% OFF'),
+
+                          const SizedBox(height: 20),
+
+                          // shop now button
+                          MyButton(
+                            text: "Shop Now",
+                            buttonColor: Colors.blueGrey,
+                            onTap: () {
+                              // go to  promo page
+                              Navigator.pushNamed(context, '/detailpage');
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
 
                 const SizedBox(
                   height: 24,
