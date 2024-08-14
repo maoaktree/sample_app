@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sample_app/homePage/components/header.dart';
 import 'package:sample_app/homePage/components/initial_cards.dart';
 import 'package:sample_app/homePage/components/nav_bar.dart';
+import 'package:sample_app/homePage/components/promo_banner.dart';
 import 'package:sample_app/homePage/components/shop_tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,15 +30,17 @@ class _HomePageState extends State<HomePage> {
                       Header(),
                       SizedBox(height: 10),
                       InitialCards(),
+                      PromoBanner(),
                       SizedBox(height: 10),
+                      ShopByCategory(),
                     ],
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: ShopTab(),
-            ),
+            // Expanded(
+            //   child: ShopTab(),
+            // ),
           ],
         ),
       ),

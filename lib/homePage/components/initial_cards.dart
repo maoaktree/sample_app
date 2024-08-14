@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sample_app/util/button.dart';
+import 'package:sample_app/util/theme.dart';
 
 class InitialCards extends StatelessWidget {
   const InitialCards({super.key});
@@ -20,16 +20,14 @@ class InitialCards extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'ORDER \nAGAIN',
-                        style: GoogleFonts.nunito(
-                            color: Colors.blueGrey,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold),
+                        style: AppTextStyles.headerSubtitle,
                       ),
                     ],
                   ),
@@ -44,39 +42,38 @@ class InitialCards extends StatelessWidget {
             ),
 
             const SizedBox(
-              height: 10,
+              height: 16,
             ),
 
             // LOCAL SHOP
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(83, 227, 158, 1),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'LOCAL \nSHOP',
-                          style: GoogleFonts.nunito(
-                              color: Colors.blueGrey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    const SizedBox(width: 24),
-                    Image.asset(
-                      'lib/images/shop.png',
-                      width: 42,
-                      height: 42,
-                    ),
-                  ],
-                ),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(83, 227, 158, 1),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'LOCAL \nSHOP',
+                        style: GoogleFonts.nunito(
+                            color: Colors.blueGrey,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                  const SizedBox(width: 24),
+                  Image.asset(
+                    'lib/images/shop.png',
+                    width: 42,
+                    height: 42,
+                  ),
+                ],
               ),
             ),
           ],
@@ -87,31 +84,31 @@ class InitialCards extends StatelessWidget {
         ),
 
         // PROMO BANNER
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.green,
-            borderRadius: BorderRadius.circular(20),
-          ),
-          margin: const EdgeInsets.symmetric(horizontal: 25),
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
-          child: Row(
-            children: [
-              Column(
-                children: [
-                  const Text('FRESH AVOCADO UP TO 15% OFF'),
-                  const SizedBox(height: 20),
-                  MyButton(
-                    text: "Shop Now",
-                    buttonColor: Colors.blueGrey,
-                    onTap: () {
-                      Navigator.pushNamed(context, '/detailpage');
-                    },
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
+        // Container(
+        //   decoration: BoxDecoration(
+        //     color: Colors.green,
+        //     borderRadius: BorderRadius.circular(20),
+        //   ),
+        //   margin: const EdgeInsets.symmetric(horizontal: 25),
+        //   padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 30),
+        //   child: Row(
+        //     children: [
+        //       Column(
+        //         children: [
+        //           const Text('FRESH AVOCADO UP TO 15% OFF'),
+        //           const SizedBox(height: 20),
+        //           MyButton(
+        //             text: "Shop Now",
+        //             buttonColor: Colors.blueGrey,
+        //             onTap: () {
+        //               Navigator.pushNamed(context, '/detailpage');
+        //             },
+        //           ),
+        //         ],
+        //       )
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }
