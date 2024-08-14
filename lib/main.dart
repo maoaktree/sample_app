@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_app/pages/detail_page.dart';
 import 'pages/home_page.dart';
 
 void main() {
@@ -13,6 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
+      routes: {
+        '/homepage': (context) => const HomePage(),
+        '/detailpage': (context) => const DetailPage(),
+      },
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
