@@ -16,20 +16,29 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Header(),
-                SizedBox(height: 20),
-                InitialCards(),
-                SizedBox(height: 20),
-                ShopTab(), // Integrando a ShopTab aqui
-              ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Header(),
+                      SizedBox(height: 10),
+                      InitialCards(),
+                      SizedBox(height: 10),
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
+            Expanded(
+              child: ShopTab(),
+            ),
+          ],
         ),
       ),
       extendBody: true,
