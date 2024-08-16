@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
@@ -6,6 +7,8 @@ class MyButton extends StatelessWidget {
   final Color buttonColor;
   final Color textColor;
   final double fontSize;
+  final String fontFamily;
+
   final EdgeInsetsGeometry padding;
 
   const MyButton({
@@ -15,6 +18,7 @@ class MyButton extends StatelessWidget {
     required this.buttonColor,
     this.textColor = Colors.blueGrey,
     this.fontSize = 16.0,
+    this.fontFamily = 'Nunito',
     this.padding = const EdgeInsets.all(20),
   });
 
@@ -34,7 +38,8 @@ class MyButton extends StatelessWidget {
             // text
             Text(
               text,
-              style: TextStyle(color: textColor, fontSize: fontSize),
+              style: GoogleFonts.getFont(fontFamily,
+                  color: textColor, fontSize: fontSize),
             ),
           ],
         ),

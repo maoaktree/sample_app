@@ -37,14 +37,17 @@ class _PromoBannerState extends State<PromoBanner> {
             _buildBanner(
               backgroundColor: Colors.green.withOpacity(0.3),
               title: 'FRESH AVOCADO \nUP TO 15% OFF',
+              imagePath: 'lib/images/avocado.png',
             ),
             _buildBanner(
               backgroundColor: Colors.orange.withOpacity(0.3),
               title: 'SUMMER SALE: \n20% OFF ALL ITEMS',
+              imagePath: 'lib/images/orange2.png',
             ),
             _buildBanner(
               backgroundColor: Colors.blue.withOpacity(0.3),
               title: 'NEW ARRIVALS: \n10% OFF',
+              imagePath: 'lib/images/blueberry.png',
             ),
           ],
         ),
@@ -57,7 +60,11 @@ class _PromoBannerState extends State<PromoBanner> {
     );
   }
 
-  Widget _buildBanner({required Color backgroundColor, required String title}) {
+  Widget _buildBanner({
+    required Color backgroundColor,
+    required String title,
+    required String imagePath,
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: backgroundColor,
@@ -80,11 +87,11 @@ class _PromoBannerState extends State<PromoBanner> {
                 ),
                 textAlign: TextAlign.left,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               MyButton(
                 text: "Shop Now",
-                buttonColor: Colors.white,
-                textColor: Colors.black,
+                buttonColor: const Color.fromARGB(255, 6, 68, 99),
+                textColor: const Color.fromRGBO(83, 227, 158, 1),
                 fontSize: 12,
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -95,10 +102,10 @@ class _PromoBannerState extends State<PromoBanner> {
             ],
           ),
           SizedBox(
-            width: 100,
+            height: 180,
             child: Image.asset(
-              'lib/images/avocado.png',
-              fit: BoxFit.contain,
+              imagePath,
+              fit: BoxFit.cover,
             ),
           ),
         ],

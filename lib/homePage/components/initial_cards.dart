@@ -27,8 +27,11 @@ class InitialCards extends StatelessWidget {
                     children: [
                       Text(
                         'ORDER \nAGAIN',
-                        style: AppTextStyles.headerSubtitle,
-                      ),
+                        style: GoogleFonts.nunito(
+                            color: const Color.fromARGB(255, 6, 68, 99),
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold),
+                      )
                     ],
                   ),
                   const SizedBox(width: 24),
@@ -61,7 +64,7 @@ class InitialCards extends StatelessWidget {
                       Text(
                         'LOCAL \nSHOP',
                         style: GoogleFonts.nunito(
-                            color: Colors.blueGrey,
+                            color: const Color.fromARGB(255, 6, 68, 99),
                             fontSize: 12,
                             fontWeight: FontWeight.bold),
                       )
