@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:sample_app/util/fruits_tile.dart';
+import 'package:sample_app/util/theme.dart';
 
 class MilkTab extends StatelessWidget {
-  // list of fruits
-  List fruitsOnSale = [
-// [fruitsType, fruitsPrice, fruitsColor, imageName]
-
-    ["Orange", "3", Colors.orange, "lib/images/orange.png"],
-    ["Strawberry", "5", Colors.red, "lib/images/orange.png"],
-    ["Grape", "9", Colors.purple, "lib/images/orange.png"],
-    ["Blueberry", "6", Colors.blue, "lib/images/orange.png"],
-  ];
+  const MilkTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: fruitsOnSale.length,
-      padding: const EdgeInsets.all(12),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1 / 1.5,
+    return Center(
+      child: Container(
+        width: 150,
+        height: 150,
+        decoration: BoxDecoration(
+          color: Colors.purple[50],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Center(
+          child: Text(
+            'available \nsoon',
+            style: AppTextStyles.headerTitle,
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
-      itemBuilder: (context, index) {
-        return FruitsTile(
-          fruitsType: fruitsOnSale[index][0],
-          fruitsPrice: fruitsOnSale[index][1],
-          fruitsColor: fruitsOnSale[index][2],
-          imageName: fruitsOnSale[index][3],
-        );
-      },
     );
   }
 }
