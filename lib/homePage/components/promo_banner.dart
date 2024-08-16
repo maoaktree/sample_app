@@ -119,6 +119,7 @@ class DotsIndicator extends StatelessWidget {
   final int itemCount;
 
   const DotsIndicator({
+    super.key,
     required this.currentIndex,
     required this.itemCount,
   });

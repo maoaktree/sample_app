@@ -1,11 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sample_app/util/theme.dart';
 
 class ShopByCategory extends StatelessWidget {
   final void Function(int) onCategorySelected;
 
-  const ShopByCategory({Key? key, required this.onCategorySelected})
-      : super(key: key);
+  const ShopByCategory({super.key, required this.onCategorySelected});
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,12 @@ class ShopByCategory extends StatelessWidget {
   Widget _buildCategoryIcon(BuildContext context,
       {required String iconPath, required String title, required int index}) {
     return GestureDetector(
-      onTap: () => onCategorySelected(index), //call the callback index tab
+      onTap: () {
+        if (kDebugMode) {
+          print('Category tapped: $title');
+        }
+        onCategorySelected(index); //call the callback index tab
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(

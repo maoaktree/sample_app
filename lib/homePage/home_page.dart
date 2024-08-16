@@ -11,23 +11,28 @@ import 'package:sample_app/tab/milk_tab.dart';
 import 'package:sample_app/tab/vegan_tab.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  late ScrollController _scrollController;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 5, vsync: this); // tabs
+    _scrollController = ScrollController();
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -35,57 +40,59 @@ class _HomePageState extends State<HomePage>
     _tabController.animateTo(index);
   }
 
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      _scrollController.position.minScrollExtent,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Header(),
-                    const SizedBox(height: 10),
-                    const InitialCards(),
-                    const PromoBanner(),
-                    const SizedBox(height: 15),
-                    ShopByCategory(
-                      onCategorySelected: _onCategorySelected,
-                    ),
-                    const SizedBox(height: 10),
-                    Expanded(
-                      child: TabBarView(
-                        controller: _tabController,
-                        children: [
-                          // vegan page
-                          VeganTab(),
-                          // meat page
-                          MeatTab(),
-                          //fruits page
-                          FruitsTab(),
-                          // milk page
-                          MilkTab(),
-                          //fish page
-                          FishTab(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+        child: CustomScrollView(
+          controller: _scrollController,
+          slivers: [
+            SliverPadding(
+              padding: const EdgeInsets.all(15.0),
+              sliver: SliverList(
+                delegate: SliverChildListDelegate([
+                  const Header(),
+                  const SizedBox(height: 10),
+                  const InitialCards(),
+                  const PromoBanner(),
+                  const SizedBox(height: 15),
+                  ShopByCategory(
+                    onCategorySelected: _onCategorySelected,
+                  ),
+                ]),
               ),
             ),
-            // Expanded(
-            //   child: ShopTab(),
-            // ),
+            SliverFillRemaining(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  VeganTab(),
+                  MeatTab(),
+                  const FruitsTab(),
+                  const MilkTab(),
+                  const FishTab(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
       extendBody: true,
       bottomNavigationBar: const NavBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _scrollToTop,
+        backgroundColor: const Color.fromRGBO(83, 227, 158, 1),
+        tooltip: 'Back to Top',
+        child: const Icon(Icons.arrow_upward),
+      ),
     );
   }
 }
