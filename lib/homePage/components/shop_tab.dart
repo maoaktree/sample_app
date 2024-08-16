@@ -4,8 +4,12 @@ import 'package:sample_app/util/theme.dart';
 
 class ShopByCategory extends StatelessWidget {
   final void Function(int) onCategorySelected;
+  final int selectedIndex;
 
-  const ShopByCategory({super.key, required this.onCategorySelected});
+  const ShopByCategory(
+      {super.key,
+      required this.onCategorySelected,
+      required this.selectedIndex});
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +73,7 @@ class ShopByCategory extends StatelessWidget {
 
   Widget _buildCategoryIcon(BuildContext context,
       {required String iconPath, required String title, required int index}) {
+    final bool isSelected = index == selectedIndex;
     return GestureDetector(
       onTap: () {
         if (kDebugMode) {
@@ -84,20 +89,32 @@ class ShopByCategory extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
+                color: isSelected ? Colors.grey[200] : Colors.grey[200],
                 borderRadius: BorderRadius.circular(12),
               ),
               child: FittedBox(
-                fit:
-                    BoxFit.scaleDown, // Adjusts image size within the container
+                fit: BoxFit.scaleDown,
                 child: Padding(
-                  padding: const EdgeInsets.all(80.0),
-                  child: Image.asset(iconPath),
+                  padding: const EdgeInsets.all(8.0),
+                  child: ColorFiltered(
+                    colorFilter: ColorFilter.mode(
+                      isSelected
+                          ? Colors.transparent
+                          : Colors.grey.withOpacity(0.3),
+                      BlendMode.srcATop,
+                    ),
+                    child: Image.asset(iconPath),
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 8.0),
-            Text(title, style: AppTextStyles.headerSubtitle),
+            Text(
+              title,
+              style: AppTextStyles.headerSubtitle.copyWith(
+                color: isSelected ? Colors.black : Colors.grey,
+              ),
+            ),
           ],
         ),
       ),

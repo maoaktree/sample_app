@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   late ScrollController _scrollController;
+  int _selectedCategoryIndex = 0;
 
   @override
   void initState() {
@@ -37,6 +38,9 @@ class _HomePageState extends State<HomePage>
   }
 
   void _onCategorySelected(int index) {
+    setState(() {
+      _selectedCategoryIndex = index;
+    });
     _tabController.animateTo(index);
   }
 
@@ -66,20 +70,24 @@ class _HomePageState extends State<HomePage>
                   const SizedBox(height: 15),
                   ShopByCategory(
                     onCategorySelected: _onCategorySelected,
+                    selectedIndex: _selectedCategoryIndex,
                   ),
                 ]),
               ),
             ),
-            SliverFillRemaining(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  VeganTab(),
-                  MeatTab(),
-                  const FruitsTab(),
-                  const MilkTab(),
-                  const FishTab(),
-                ],
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    VeganTab(),
+                    MeatTab(),
+                    const FruitsTab(),
+                    const MilkTab(),
+                    const FishTab(),
+                  ],
+                ),
               ),
             ),
           ],
