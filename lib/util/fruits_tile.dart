@@ -19,7 +19,7 @@ class FruitsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
       child: Container(
         decoration: BoxDecoration(
           color: fruitsColor[50],

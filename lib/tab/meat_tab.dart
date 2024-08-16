@@ -6,8 +6,6 @@ class MeatTab extends StatelessWidget {
   List fruitsOnSale = [
 // [fruitsType, fruitsPrice, fruitsColor, imageName]
 
-    ["Orange", "3", Colors.orange, "lib/images/orange.png"],
-    ["Strawberry", "5", Colors.red, "lib/images/orange.png"],
     ["Grape", "9", Colors.purple, "lib/images/orange.png"],
     ["Blueberry", "6", Colors.blue, "lib/images/orange.png"],
   ];
