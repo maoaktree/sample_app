@@ -6,15 +6,15 @@ class VeganTab extends StatelessWidget {
   List fruitsOnSale = [
 // [fruitsType, fruitsPrice, fruitsColor, imageName]
 
-    ["Orange", "3", Colors.orange, "lib/images/orange.png"],
-    ["Broccoli", "5", Colors.green, "lib/images/orange.png"],
+    ["Orange", "3", Colors.orange, "lib/images/orange.png", 'Fruits', '4.8'],
+    ["Broccoli", "5", Colors.green, "lib/images/broccoli.png", 'Fruits', '4.3'],
   ];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: fruitsOnSale.length,
-      padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
+      padding: const EdgeInsets.only(left: 5, right: 5),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 1 / 1.5,
@@ -25,6 +25,8 @@ class VeganTab extends StatelessWidget {
           fruitsPrice: fruitsOnSale[index][1],
           fruitsColor: fruitsOnSale[index][2],
           imageName: fruitsOnSale[index][3],
+          productType: fruitsOnSale[index][4],
+          itemRating: fruitsOnSale[index][5],
         );
       },
     );

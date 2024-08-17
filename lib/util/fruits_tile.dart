@@ -5,16 +5,19 @@ class FruitsTile extends StatelessWidget {
   final String fruitsPrice;
   final fruitsColor;
   final String imageName;
+  final String productType;
+  final String itemRating;
 
   final double borderRadius = 12;
 
-  const FruitsTile({
-    super.key,
-    required this.fruitsType,
-    required this.fruitsPrice,
-    required this.fruitsColor,
-    required this.imageName,
-  });
+  const FruitsTile(
+      {super.key,
+      required this.fruitsType,
+      required this.fruitsPrice,
+      required this.fruitsColor,
+      required this.imageName,
+      required this.productType,
+      required this.itemRating});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,7 @@ class FruitsTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // price
             Row(
@@ -54,45 +58,53 @@ class FruitsTile extends StatelessWidget {
             // fruits pictures
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 36.0, vertical: 16.0),
-                child: Image.asset(imageName),
+                padding: const EdgeInsets.only(right: 12.0, left: 12.0),
+                child: Image.asset(
+                  imageName,
+                  height: 140,
+                ),
               ),
             ),
 
             // fruits type
-            Text(
-              fruitsType,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: Text(
+                fruitsType,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
             ),
-            const SizedBox(height: 4),
-            Text(
-              'Fruits',
-              style: TextStyle(color: Colors.grey[600]),
-            ),
 
-            const SizedBox(height: 12),
+            // product type
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+              child: SizedBox(
+                width: 160,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      productType,
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
 
-            // star icon + add button
-            Row(
-              children: [
-                // star icon
-                const Icon(
-                  Icons.star,
-                  color: Colors.yellow,
+                    // star icon
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow[800],
+                        ),
+                        Text(itemRating),
+                      ],
+                    ),
+                  ],
                 ),
-
-                const SizedBox(width: 8),
-
-                //plus button
-                Icon(
-                  Icons.add,
-                  color: Colors.grey[800],
-                ),
-              ],
+              ),
             ),
           ],
         ),

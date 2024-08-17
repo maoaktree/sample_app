@@ -28,7 +28,7 @@ class ShopByCategory extends StatelessWidget {
         // Horizontal Scrollable List
         Container(
           height: 120,
-          padding: const EdgeInsets.only(top: 5.0),
+          padding: const EdgeInsets.only(top: 8.0),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(

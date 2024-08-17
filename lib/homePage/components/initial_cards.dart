@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sample_app/pages/detail_page.dart';
 import 'package:sample_app/util/theme.dart';
 
 class InitialCards extends StatelessWidget {

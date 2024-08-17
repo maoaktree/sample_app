@@ -3,17 +3,24 @@ import 'package:sample_app/util/fruits_tile.dart';
 
 class MeatTab extends StatelessWidget {
   // list of fruits
-  List fruitsOnSale = [
-// [fruitsType, fruitsPrice, fruitsColor, imageName]
+  List meatsOnSale = [
+// [meatsType, meatsPrice, meatsColor, imageName]
 
-    ["Grape", "9", Colors.purple, "lib/images/orange.png"],
-    ["Blueberry", "6", Colors.blue, "lib/images/orange.png"],
+    [
+      "Hamburguer",
+      "12",
+      Colors.red,
+      "lib/images/hamburguer.png",
+      'Meat',
+      '4.9'
+    ],
+    ["Chicken", "9", Colors.pink, "lib/images/chicken2.png", 'Meat', '5.0'],
   ];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      itemCount: fruitsOnSale.length,
+      itemCount: meatsOnSale.length,
       padding: const EdgeInsets.all(12),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -21,10 +28,12 @@ class MeatTab extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return FruitsTile(
-          fruitsType: fruitsOnSale[index][0],
-          fruitsPrice: fruitsOnSale[index][1],
-          fruitsColor: fruitsOnSale[index][2],
-          imageName: fruitsOnSale[index][3],
+          fruitsType: meatsOnSale[index][0],
+          fruitsPrice: meatsOnSale[index][1],
+          fruitsColor: meatsOnSale[index][2],
+          imageName: meatsOnSale[index][3],
+          productType: meatsOnSale[index][4],
+          itemRating: meatsOnSale[index][5],
         );
       },
     );
