@@ -97,7 +97,7 @@ void _showUserPopup(BuildContext context) {
           'My journey with Flutter began as a passion that quickly turned into a career. From my early steps in mobile app development, I fell in love with the flexibility and power of Flutter. It all started with a personal project to enhance communication in my yoga school, which led me to dive headfirst into this field. Since then, I’ve worked on various projects, always striving to create amazing and functional interfaces.\n\n'
           'Participating in the Bento Challenge is an exciting opportunity for me to showcase what I’ve learned and continue growing as a Flutter developer. I’m thrilled to share my skills and see how far I can go with this challenge!\n\n'
           'Thank you for the opportunity, and let’s get started!',
-          style: AppTextStyles.detailText,
+          style: AppTextStyles.detailText2,
         ),
         actions: <Widget>[
           TextButton(

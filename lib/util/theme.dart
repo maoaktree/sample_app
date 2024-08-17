@@ -36,4 +36,9 @@ class AppTextStyles {
     color: AppColors.darkGray,
     fontSize: 14,
   );
+
+  static TextStyle detailText2 = GoogleFonts.nunito(
+    color: AppColors.darkGray,
+    fontSize: 12,
+  );
 }
