@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage>
             ),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.height * 0.48,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
@@ -97,8 +97,10 @@ class _HomePageState extends State<HomePage>
       bottomNavigationBar: const NavBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: _scrollToTop,
-        backgroundColor: const Color.fromRGBO(83, 227, 158, 1),
+        backgroundColor: const Color.fromRGBO(83, 227, 158, 1).withOpacity(0.5),
         tooltip: 'Back to Top',
+        shape: const CircleBorder(),
+        mini: true,
         child: const Icon(Icons.arrow_upward),
       ),
     );

@@ -96,7 +96,7 @@ class _PromoBannerState extends State<PromoBanner> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                 onTap: () {
-                  Navigator.pushNamed(context, '/detailpage');
+                  _showPopup(context);
                 },
               ),
             ],
@@ -142,4 +142,33 @@ class DotsIndicator extends StatelessWidget {
       ),
     );
   }
+}
+
+void _showPopup(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(
+          "Don't be sad",
+          style: AppTextStyles.headerTitle,
+        ),
+        content: Text(
+          'available soon',
+          style: AppTextStyles.detailText,
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: const Text(
+              'Close',
+              style: TextStyle(color: AppColors.navyBlue),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      );
+    },
+  );
 }

@@ -6,8 +6,15 @@ class VeganTab extends StatelessWidget {
   List fruitsOnSale = [
 // [fruitsType, fruitsPrice, fruitsColor, imageName]
 
-    ["Orange", "3", Colors.orange, "lib/images/orange.png", 'Fruits', '4.8'],
-    ["Broccoli", "5", Colors.green, "lib/images/broccoli.png", 'Fruits', '4.3'],
+    [
+      "Artichoke",
+      "12",
+      Colors.green,
+      "lib/images/artichoke.png",
+      'Vegetable',
+      '4.8'
+    ],
+    ["Orange", "5", Colors.orange, "lib/images/orange.png", 'Fruits', '4.3'],
   ];
 
   @override

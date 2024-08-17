@@ -3,7 +3,7 @@ import 'package:sample_app/homePage/home_page.dart';
 import 'package:sample_app/util/theme.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({Key? key}) : super(key: key);
+  const NavBar({super.key});
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -156,14 +156,14 @@ class _NavBarState extends State<NavBar> {
 
 class NavBarIcon extends StatelessWidget {
   const NavBarIcon({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     required this.selected,
     required this.onPressed,
     this.selectedColor = const Color(0xffFF8527),
     this.defaultColor = Colors.black54,
-  }) : super(key: key);
+  });
 
   final String text;
   final IconData icon;
@@ -175,16 +175,19 @@ class NavBarIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        IconButton(
-          onPressed: onPressed,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          icon: Icon(
-            icon,
-            size: 25,
-            color: selected ? selectedColor : defaultColor,
+        Expanded(
+          child: IconButton(
+            onPressed: onPressed,
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: Icon(
+              icon,
+              size: 25,
+              color: selected ? selectedColor : defaultColor,
+            ),
           ),
         ),
         Text(
