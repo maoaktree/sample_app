@@ -44,13 +44,13 @@ class _HomePageState extends State<HomePage>
     _tabController.animateTo(index);
   }
 
-  void _scrollToTop() {
-    _scrollController.animateTo(
-      _scrollController.position.minScrollExtent,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
-  }
+  // void _scrollToTop() {
+  //   _scrollController.animateTo(
+  //     _scrollController.position.minScrollExtent,
+  //     duration: const Duration(milliseconds: 300),
+  //     curve: Curves.easeOut,
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -95,14 +95,14 @@ class _HomePageState extends State<HomePage>
       ),
       extendBody: true,
       bottomNavigationBar: const NavBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _scrollToTop,
-        backgroundColor: const Color.fromRGBO(83, 227, 158, 1).withOpacity(0.5),
-        tooltip: 'Back to Top',
-        shape: const CircleBorder(),
-        mini: true,
-        child: const Icon(Icons.arrow_upward),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _scrollToTop,
+      //   backgroundColor: const Color.fromRGBO(83, 227, 158, 1).withOpacity(0.5),
+      //   tooltip: 'Back to Top',
+      //   shape: const CircleBorder(),
+      //   mini: true,
+      //   child: const Icon(Icons.arrow_upward),
+      // ),
     );
   }
 }

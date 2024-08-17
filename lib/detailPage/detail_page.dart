@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:sample_app/homePage/home_page.dart';
 
 class DetailPage extends StatelessWidget {
   final List<String> imageUrls = [
@@ -19,7 +20,9 @@ class DetailPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomePage()),
+            );
           },
         ),
         actions: [
@@ -101,15 +104,18 @@ class DetailPage extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            // CIcons information
+            // Icons information
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _buildInfoIcon("Vegetarian", Icons.eco),
-                  _buildInfoIcon("Halal Food", Icons.check_circle_outline),
-                  _buildInfoIcon("Gluten-free", Icons.grain),
+                  _buildInfoIcon("Organic", Icons.eco),
+                  _buildInfoIcon("Vegan Food", Icons.check_circle_outline),
+                  _buildInfoIcon(
+                    "Gluten-free",
+                    Icons.grain,
+                  ),
                 ],
               ),
             ),

@@ -8,17 +8,20 @@ class FruitsTile extends StatelessWidget {
   final String imageName;
   final String productType;
   final String itemRating;
+  final bool isFirstTile;
 
   final double borderRadius = 12;
 
-  const FruitsTile(
-      {super.key,
-      required this.fruitsType,
-      required this.fruitsPrice,
-      required this.fruitsColor,
-      required this.imageName,
-      required this.productType,
-      required this.itemRating});
+  const FruitsTile({
+    super.key,
+    required this.fruitsType,
+    required this.fruitsPrice,
+    required this.fruitsColor,
+    required this.imageName,
+    required this.productType,
+    required this.itemRating,
+    this.isFirstTile = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,13 @@ class FruitsTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 12.0, right: 12.0),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (context) => DetailPage(),
-            ),
-          );
+          if (isFirstTile) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => DetailPage(),
+              ),
+            );
+          }
         },
         child: Container(
           decoration: BoxDecoration(

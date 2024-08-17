@@ -34,6 +34,7 @@ class VeganTab extends StatelessWidget {
           imageName: fruitsOnSale[index][3],
           productType: fruitsOnSale[index][4],
           itemRating: fruitsOnSale[index][5],
+          isFirstTile: index == 0,
         );
       },
     );
