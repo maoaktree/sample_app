@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:sample_app/homePage/home_page.dart';
+import 'package:sample_app/util/theme.dart';
 
 class DetailPage extends StatelessWidget {
   final List<String> imageUrls = [
@@ -74,21 +75,11 @@ class DetailPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Organic Fresh Artichoke",
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text("Organic Fresh Artichoke",
+                          style: AppTextStyles.headerTitle2),
                       const SizedBox(height: 4),
-                      Text(
-                        "Shop: Alisha Mart",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[600],
-                        ),
-                      ),
+                      Text("Shop: Alisha Mart",
+                          style: AppTextStyles.detailText),
                     ],
                   ),
                   Row(
@@ -128,22 +119,12 @@ class DetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Details",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text("Details", style: AppTextStyles.headerTitle),
                   const SizedBox(height: 10),
                   Text(
-                    "These organic, vegan, and gluten-free artichokes are a natural delight, perfect for any healthy diet."
-                    "Okie dokie, artichoke—let's get cooking!",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
-                  ),
+                      "These organic, vegan, and gluten-free artichokes are a natural delight, perfect for any healthy diet."
+                      "Okie dokie, artichoke—let's get cooking!",
+                      style: AppTextStyles.detailText),
                 ],
               ),
             ),
@@ -211,15 +192,9 @@ class DetailPage extends StatelessWidget {
   Widget _buildInfoIcon(String label, IconData iconData) {
     return Column(
       children: [
-        Icon(iconData, size: 30, color: Colors.blue),
+        Icon(iconData, size: 30, color: const Color.fromARGB(255, 4, 51, 75)),
         const SizedBox(height: 8),
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 12,
-            color: Colors.black,
-          ),
-        ),
+        Text(label, style: AppTextStyles.detailText),
       ],
     );
   }

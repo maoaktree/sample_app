@@ -15,6 +15,12 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static TextStyle headerTitle2 = GoogleFonts.nunito(
+    color: AppColors.navyBlue,
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+  );
+
   static TextStyle headerSubtitle = GoogleFonts.nunito(
     color: AppColors.navyBlue,
     fontSize: 12,
@@ -28,6 +34,6 @@ class AppTextStyles {
 
   static TextStyle detailText = GoogleFonts.nunito(
     color: AppColors.darkGray,
-    fontSize: 12,
+    fontSize: 14,
   );
 }
